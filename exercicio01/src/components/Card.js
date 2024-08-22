@@ -30,7 +30,7 @@ const CardContainer = styled.div`
         width: 250px;
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 620px) {
         width: 400px;
         padding-bottom: 120px;
     }
