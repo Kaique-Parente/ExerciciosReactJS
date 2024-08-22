@@ -1,8 +1,8 @@
-# Exercícios de ReactJS 🚀
+<h1 align="center">Exercícios de ReactJS 🚀</h1>
 
 ![React Logo](https://reactjs.org/logo-og.png)
 
-Bem-vindo ao meu repositório de exercícios de ReactJS! Este repositório contém uma série de exercícios e projetos desenvolvidos na faculdade para o aprendizado com a biblioteca React.
+Bem-vindo ao meu repositório de exercícios de ReactJS! Este repositório contém uma série de exercícios e projetos <br> desenvolvidos na faculdade para o aprendizado com a biblioteca React.
 
 ## Índice 📂
 
@@ -13,7 +13,7 @@ Bem-vindo ao meu repositório de exercícios de ReactJS! Este repositório cont�
 
 ## Introdução 📚
 
-Este repositório contém diversos exercícios de ReactJS que cobrem os tópicos abordados em sala desde os conceitos básicos até técnicas avançadas.
+Este repositório contém diversos exercícios de ReactJS que cobrem os tópicos abordados em sala <br> desde os conceitos básicos até técnicas avançadas.
 
 ## Estrutura do Repositório 📁
 
@@ -28,7 +28,7 @@ Aqui está uma visão geral da estrutura das pastas e arquivos do repositório:
 
 ## Instruções de Uso 🛠️
 
-### Pré-requisitos
+### :information_source: Pré-requisitos
 
 Antes de começar, certifique-se de que você tem as seguintes ferramentas instaladas:
 
