@@ -11,3 +11,7 @@ Bem-vindo ao meu primeiro projeto em ReactJS. Este projeto foi desenvolvido util
 ## Funcionalidades
 
 - **Design Responsivo**: A interface é otimizada para funcionar bem em dispositivos móveis e desktops.
+
+## Apresentação:
+
+<img src="./src/assets/images/ProjetoReadme.jpg">
