@@ -6,11 +6,10 @@ Bem-vindo ao meu repositório de exercícios de ReactJS! Este repositório cont�
 
 ## Índice 📂
 
-- [Introdução](#introdução)
-- [Estrutura do Repositório](#estrutura-do-repositório)
-- [Instruções de Uso](#instruções-de-uso)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Introdução](#introdução-)
+- [Estrutura do Repositório](#estrutura-do-repositório-)
+- [Instruções de Uso](#instruções-de-uso-%EF%B8%8F)
+- [Licença](#memo-licença)
 
 ## Introdução 📚
 
@@ -20,7 +19,7 @@ Este repositório contém diversos exercícios de ReactJS que cobrem os tópicos
 
 Aqui está uma visão geral da estrutura das pastas e arquivos do repositório:
 
-- **[Exercício - 01](./01-Introdução)**: Utilização de Cards, Objetos, Listas e Styled-Components.
+- **[Exercício - 01](./exercicio01)**: Utilização de Cards, Objetos, Listas, Styled-Components e Responsividade.
 - **[Exercício - 02]()**: Exercício ...
 - **[Exercício - 03]()**: Exercício ...
 - **[Exercício - 04]()**: Exercício ...
@@ -54,3 +53,7 @@ $ npm start
 # Abra seu navegador e acesse:
 $ http://localhost:3000
 ```
+
+## :memo: Licença
+
+Este projeto está licenciado sob a [MIT License](https://github.com/Kaique-Parente/ExerciciosReactJS/blob/main/LICENSE). 📜
