@@ -46,4 +46,4 @@ $ http://localhost:3000
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE). 📜
+Este projeto está licenciado sob a [MIT License](https://github.com/Kaique-Parente/ExerciciosReactJS/blob/main/LICENSE). 📜
