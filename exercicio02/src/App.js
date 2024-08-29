@@ -21,7 +21,7 @@ const dadosIniciais = {
 };
 
 const ContainerApp = styled.div`
-  max-width: 800px;
+  max-width: 801px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
