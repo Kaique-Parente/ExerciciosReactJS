@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Wave from "./Wave";
 
 const ContainerCard = styled.div`
     width: ${props => props.width};
@@ -7,28 +8,34 @@ const ContainerCard = styled.div`
     border: 1px solid black;
 `
 
-export default function Card({ titulo, filtro, tarefas, onTarefaAlterar }) {
+export default function Card(props) {
+ 
+  
+  const color = props.tarefas.status == true ? "green" : "red";
+  const tamanhoH = 400;
+
   return (
-    <ContainerCard>
-      <h2>{titulo}</h2>
-      {typeof filtro === 'function' ? ( //Se o filtro for uma função
-        filtro().map(tarefa => (
+    <ContainerCard width={tamanhoH+"px"}>
+      <Wave width={tamanhoH+"px"} color={color} texto={props.titulo}/>
+      <h2>{props.titulo}</h2>
+      {typeof props.filtro === 'function' ? ( //Se o props.filtro for uma função
+        props.filtro().map(tarefa => (
             <div key={tarefa.id}>
                 <input 
                   type="checkbox" 
                   checked={tarefa.status} 
-                  onChange={() => onTarefaAlterar(tarefa.id)}
+                  onChange={() => props.onTarefaAlterar(tarefa.id)}
                 ></input>
                 <span>{tarefa.texto}</span>
             </div>
         )) 
       ) : ( //Se não 
-        tarefas.map(tarefa => (
+        props.tarefas.map(tarefa => (
             <div key={tarefa.id}>
               <input 
                 type="checkbox" 
                 checked={tarefa.status} 
-                onChange={() => onTarefaAlterar(tarefa.id)}
+                onChange={() => props.onTarefaAlterar(tarefa.id)}
               ></input>
               <span>{tarefa.texto}</span>
             </div>
@@ -39,15 +46,15 @@ export default function Card({ titulo, filtro, tarefas, onTarefaAlterar }) {
 }
 
 /*
-        if (filtro() === "undefined") {
-          return tarefas.map((tarefa) => (
+        if (props.filtro() === "undefined") {
+          return props.tarefas.map((tarefa) => (
             <div key={tarefa.id}>
               <input type="checkbox"></input>
               <span>{tarefa.texto}</span>
             </div>
           ));
         } else {
-          return filtro().map((tarefa) => (
+          return props.filtro().map((tarefa) => (
             <div key={tarefa.id}>
               <input type="checkbox"></input>
               <span>{tarefa.texto}</span>

@@ -87,9 +87,9 @@ export default function Tarefa(){
 
     return(
         <>
-            <Card titulo="Todas" tarefas = {tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
-            <Card titulo="Pendente" filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
-            <Card titulo="Concluidas" filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Todas" tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Pendentes" tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Concluidas" tarefas={tarefas} filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
             
             <input type="text" id="inputTexto" value={novoTexto} onChange={handleChange}></input>
             <button onClick={adicionarTarefa}>dwadaw</button>
