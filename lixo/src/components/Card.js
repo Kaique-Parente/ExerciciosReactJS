@@ -1,10 +1,17 @@
-export default function Card({ titulo, filtro, tarefas, onTarefaAlterar }) {
-  let test = true;
+import styled from "styled-components";
 
+const ContainerCard = styled.div`
+    width: ${props => props.width};
+    height: 600px;
+    border-radius: 12px;
+    border: 1px solid black;
+`
+
+export default function Card({ titulo, filtro, tarefas, onTarefaAlterar }) {
   return (
-    <>
+    <ContainerCard>
       <h2>{titulo}</h2>
-      {typeof filtro === 'function' ? (
+      {typeof filtro === 'function' ? ( //Se o filtro for uma função
         filtro().map(tarefa => (
             <div key={tarefa.id}>
                 <input 
@@ -15,7 +22,7 @@ export default function Card({ titulo, filtro, tarefas, onTarefaAlterar }) {
                 <span>{tarefa.texto}</span>
             </div>
         )) 
-      ) : (
+      ) : ( //Se não 
         tarefas.map(tarefa => (
             <div key={tarefa.id}>
               <input 
@@ -27,7 +34,7 @@ export default function Card({ titulo, filtro, tarefas, onTarefaAlterar }) {
             </div>
         ))
      )}
-    </>
+    </ContainerCard>
   );
 }
 

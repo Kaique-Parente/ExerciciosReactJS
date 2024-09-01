@@ -3,7 +3,7 @@ import Card from "./Card";
 
 export default function Tarefa(){
 
-    //useState
+    //useState Tarefas
     const [tarefas, setTarefas] = useState([
         {
             id: 1,
@@ -22,6 +22,19 @@ export default function Tarefa(){
         }
     ]);
 
+    //Função para Ordenar
+    const ordenarTarefas = (tarefas) => {
+        return tarefas.slice().sort((a, b) => {
+            if (a.status === b.status) {
+                return -1;
+            }
+            return a.status ? 1 : -1;
+        });
+    };
+
+    //Ordenando Tarefas
+    const tarefasOrdenadas = ordenarTarefas(tarefas);
+
     //Filtros
     const getTarefasPendentes = () => {
         return tarefas.filter(tarefa => tarefa.status === false);
@@ -39,11 +52,47 @@ export default function Tarefa(){
         ));
     }
 
+    //useState Novo Texto
+    const [novoTexto, setNovoTexto] = useState('');
+
+    const obterProximoId = () => {
+        const maxId = tarefas.reduce((max, tarefa) => Math.max(max, tarefa.id), 0);
+        return maxId + 1;
+    };
+
+    const adicionarTarefa = () => {
+        if(novoTexto.trim() === '') 
+            return;
+        else {
+            // Criando novo Objeto
+            const novaTarefa = {
+                id: obterProximoId(),
+                texto: novoTexto,
+                status: false
+            };
+
+            // Atualiza o estado com a nova tarefa adicionada
+            setTarefas([...tarefas, novaTarefa]);
+
+            // Limpa o campo de entrada
+            setNovoTexto('');
+            console.log(tarefas);
+        } 
+    }
+
+    // Função para atualizar o estado quando o valor do input muda
+    const handleChange = (event) => {
+        setNovoTexto(event.target.value);
+    }
+
     return(
         <>
-            <Card titulo="Todas" tarefas = {tarefas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Todas" tarefas = {tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
             <Card titulo="Pendente" filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
             <Card titulo="Concluidas" filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
+            
+            <input type="text" id="inputTexto" value={novoTexto} onChange={handleChange}></input>
+            <button onClick={adicionarTarefa}>dwadaw</button>
         </>
     );
 };
