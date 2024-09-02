@@ -13,8 +13,3 @@
     align-items: center;
     padding: 40px;
 }
-
-.ContainerTask{
-    display: flex;
-    gap: 50px;
-}

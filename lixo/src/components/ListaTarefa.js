@@ -1,5 +1,12 @@
 import { useState } from "react";
 import Card from "./Card";
+import Header from "./Header";
+import styled from "styled-components";
+
+const ContainerTask = styled.div `
+    display: flex;
+    gap: 50px;
+`
 
 export default function ListaTarefa(){
 
@@ -86,14 +93,13 @@ export default function ListaTarefa(){
 
     return(
         <>
-            <Card titulo="Todas" marcador='t' tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
-            <Card titulo="Pendentes" marcador='p' tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
-            <Card titulo="Concluidas" marcador='c' tarefas={tarefas} filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
-            
-            <div>
-                <input type="text" id="inputTexto" value={novoTexto} onChange={handleChange}></input>
-                <button onClick={adicionarTarefa}>dwadaw</button>
-            </div> 
+            <Header titulo="Tarefas de Hoje" novoTexto={novoTexto} onChange={handleChange} onClick={adicionarTarefa}/>
+            <ContainerTask>
+                <Card titulo="Todas" marcador='t' tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
+                <Card titulo="Pendentes" marcador='p' tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
+                <Card titulo="Concluidas" marcador='c' tarefas={tarefas} filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
+            </ContainerTask>
+ 
         </>
     );
 };
