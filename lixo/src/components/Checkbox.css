@@ -1,0 +1,44 @@
+/* Checkbox.css */
+.custom-checkbox {
+    position: absolute;
+    opacity: 0; /* Torna o checkbox invisível */
+    width: 0; /* Remove o tamanho do checkbox */
+    height: 0; /* Remove o tamanho do checkbox */
+    margin: 0; /* Remove margem */
+  }
+  
+  .custom-label {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .custom-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .custom-checkbox:checked + .custom-label::before {
+    background-color: #4caf50; /* Cor de fundo quando marcado */
+    border-color: #4caf50; /* Cor da borda quando marcado */
+  }
+  
+  .custom-checkbox:checked + .custom-label::after {
+    content: '✔'; /* Marca de seleção */
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    color: #fff; /* Cor da marca de seleção */
+    font-size: 16px;
+  }
+  

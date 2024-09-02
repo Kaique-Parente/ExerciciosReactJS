@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Card from "./Card";
 
-export default function Tarefa(){
+export default function ListaTarefa(){
 
     //useState Tarefas
     const [tarefas, setTarefas] = useState([
@@ -76,7 +76,6 @@ export default function Tarefa(){
 
             // Limpa o campo de entrada
             setNovoTexto('');
-            console.log(tarefas);
         } 
     }
 
@@ -87,12 +86,14 @@ export default function Tarefa(){
 
     return(
         <>
-            <Card titulo="Todas" tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
-            <Card titulo="Pendentes" tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
-            <Card titulo="Concluidas" tarefas={tarefas} filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Todas" marcador='t' tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Pendentes" marcador='p' tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
+            <Card titulo="Concluidas" marcador='c' tarefas={tarefas} filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
             
-            <input type="text" id="inputTexto" value={novoTexto} onChange={handleChange}></input>
-            <button onClick={adicionarTarefa}>dwadaw</button>
+            <div>
+                <input type="text" id="inputTexto" value={novoTexto} onChange={handleChange}></input>
+                <button onClick={adicionarTarefa}>dwadaw</button>
+            </div> 
         </>
     );
 };
