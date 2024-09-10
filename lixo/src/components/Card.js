@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Wave from "./Wave";
+import excluirPNG from "../assets/images/excluir.png";
 import "./Checkbox.css";
 
 const ContainerCard = styled.div`
@@ -8,9 +9,8 @@ const ContainerCard = styled.div`
     word-wrap: break-word;
     
     border-radius: 12px;
-    border: 1px solid black;
 
-    background-color: ${props => props.background === 't' ? "rgb(0 86 179 / 28%)" : props.background === 'p' ? "rgb(220 53 69 / 60%)" : "rgb(30 126 52 / 45%)"}
+    background-color: ${props => props.background === 't' ? "#145773" : props.background === 'p' ? "#755117" : "#3EBB5E"}
 `
 
 const ContainerTextTask = styled.div `
@@ -29,12 +29,37 @@ const ContainerTextTask = styled.div `
 
     label {
       font-size: 20px;
+      color: #A2F2D5;
+    }
+
+    .custom-label::before {
+      border: 1px solid black;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid black;
+      border-radius: 4px;
+
+      min-width: 28px;
+      height: 22px;
+      padding-top: 2px;
+
+      background: red;
+      cursor: pointer;
+    }
+
+    img {
+      width: 14px;
     }
 `
 
 export default function Card(props) {
  
-  const color = props.marcador === 't' ? "#0056b3" : props.marcador === 'p' ? "#dc3545" : "#1e7e34";
+  const color = props.marcador === 't' ? "#143873" : props.marcador === 'p' ? "#754117" : "#42A33E";
   const tamanhoH = 400;
 
   return (
@@ -52,6 +77,7 @@ export default function Card(props) {
                   className="custom-checkbox"
                 ></input>
                 <label className="custom-label" htmlFor={"customCheckbox" + tarefa.id}>{tarefa.texto}</label>
+                <button onClick={() => props.onTarefaExcluir(tarefa.id)}><img src={excluirPNG}/></button>
             </div>
         )) 
         ) : ( //Se não 
@@ -65,6 +91,7 @@ export default function Card(props) {
                 className="custom-checkbox"
               ></input>
                <label className="custom-label" htmlFor={"customCheckbox" + tarefa.id}>{tarefa.texto}</label>
+               <button onClick={() => props.onTarefaExcluir(tarefa.id)}><img src={excluirPNG}/></button>
             </div>
         ))
         )}

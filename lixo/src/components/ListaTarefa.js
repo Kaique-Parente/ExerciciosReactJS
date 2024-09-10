@@ -19,12 +19,12 @@ export default function ListaTarefa(){
         },
         {
             id: 2,
-            texto: "Fazer Tarefa",
+            texto: "Fazer Trabalho",
             status: false
         },
         {
             id: 3,
-            texto: "Arrumar computador",
+            texto: "Arrumar cores do site",
             status: true
         }
     ]);
@@ -86,25 +86,42 @@ export default function ListaTarefa(){
         } 
     }
 
+    const excluirTarefa = (id) => {
+        setTarefas(tarefas.filter(tarefa => tarefa.id !== id));
+    }
+
     // Função para atualizar o estado quando o valor do input muda
     const handleChange = (event) => {
         setNovoTexto(event.target.value);
     }
 
+    const handleKeyDown = (event) => {
+        if(event.key === 'Enter'){
+            adicionarTarefa();
+        }   
+    }
+
     return(
         <>
-            <Header titulo="Tarefas de Hoje" novoTexto={novoTexto} onChange={handleChange} onClick={adicionarTarefa}/>
+            <Header 
+                titulo="Tarefas de Hoje" 
+                novoTexto={novoTexto} 
+                onChange={handleChange} 
+                onKeyDown={handleKeyDown}
+                onClick={adicionarTarefa}
+            />
             <ContainerTask>
-                <Card titulo="Todas" marcador='t' tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar}/>
-                <Card titulo="Pendentes" marcador='p' tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar}/>
-                <Card titulo="Concluidas" marcador='c' tarefas={tarefas} filtro={getTarefasConcluidas}  onTarefaAlterar={handleTarefaAlterar}/>
+                <Card titulo="Todas" marcador='t' tarefas={tarefasOrdenadas} filtro={null} onTarefaAlterar={handleTarefaAlterar} onTarefaExcluir={excluirTarefa}/>
+                <Card titulo="Pendentes" marcador='p' tarefas={tarefas} filtro={getTarefasPendentes} onTarefaAlterar={handleTarefaAlterar} onTarefaExcluir={excluirTarefa}/>
+                <Card titulo="Concluidas" marcador='c' tarefas={tarefas} filtro={getTarefasConcluidas} onTarefaAlterar={handleTarefaAlterar} onTarefaExcluir={excluirTarefa}/>
             </ContainerTask>
  
         </>
     );
 };
 
-/*export function TarefasPendentes(){
+/*
+export function TarefasPendentes(){
     return(
         <>
             {.map(tarefa =>(
@@ -128,4 +145,5 @@ export function TarefasConcluidas(){
             ))}
         </>
     );
-};*/
+};
+*/
