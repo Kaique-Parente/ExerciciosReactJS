@@ -14,4 +14,9 @@
     padding: 40px;
 
     background-color: #147350;
+
+    @media (max-width: 768px) {
+        height: auto;
+        padding: 20px;
+    }
 }

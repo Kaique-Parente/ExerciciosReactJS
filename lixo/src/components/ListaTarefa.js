@@ -5,7 +5,13 @@ import styled from "styled-components";
 
 const ContainerTask = styled.div `
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 50px;
+
+    @media (max-width: 768px){
+        gap: 25px;
+    }
 `
 
 export default function ListaTarefa(){

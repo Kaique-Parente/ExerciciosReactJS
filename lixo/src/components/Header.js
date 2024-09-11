@@ -14,20 +14,26 @@ const ContainerHeader = styled.div `
     }
 
     h1 {
+        margin-left: 20px;
+
         font-size: 48px;
         font-weight: 700;
         color: #FFFFFF;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+        @media (max-width: 768px) {
+            font-size: 34px;
+        }
     }
 
     div {
         display: flex;
         align-items: center;
-        gap: 15px;
     }
 
     input {
         width: 450px;
+        margin-right: 10px;
     }
 
     input, button {
@@ -38,6 +44,11 @@ const ContainerHeader = styled.div `
         border-radius: 8px;
 
         font-size: 15px;
+        margin-top: 30px;
+
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
     }
 
     button {
@@ -57,6 +68,12 @@ const ContainerHeader = styled.div `
 
     img {
         width: 24px;
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+        padding: 20px;
+        margin: 15px 0px;
     }
 `
 

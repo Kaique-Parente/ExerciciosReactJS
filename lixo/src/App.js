@@ -8,6 +8,11 @@ const ContainerMain = styled.div `
   padding: 60px;
 
   border-radius: 12px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0px;
+  }
 `
 
 function App() {

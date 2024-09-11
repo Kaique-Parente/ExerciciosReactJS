@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Wave from "./Wave";
 import excluirPNG from "../assets/images/excluir.png";
 import "./Checkbox.css";
+import { useState } from "react";
 
 const ContainerCard = styled.div`
     max-width: ${props => props.width};
@@ -10,7 +11,14 @@ const ContainerCard = styled.div`
     
     border-radius: 12px;
 
-    background-color: ${props => props.background === 't' ? "#145773" : props.background === 'p' ? "#755117" : "#3EBB5E"}
+    background-color: ${props => props.background === 't' ? 
+      "#145773" : props.background === 'p' ? 
+      "#755117" : "#3EBB5E"};
+
+    @media (max-width: 768px) {
+      min-width: 300px;
+      margin-bottom: 20px;
+    }
 `
 
 const ContainerTextTask = styled.div `
