@@ -1,6 +1,6 @@
 # Lista de Tarefas To Do
 
-Bem-vindo ao meu segundo projeto em ReactJS! Nesta aplicação, estou explorando o uso do **useState**  e de **eventos** para gerenciar uma lista de tarefas. O projeto permite adicionar e remover tarefas.
+Bem-vindo ao meu segundo projeto em ReactJS! Nesta aplicação, estou explorando o uso do **useState** e de **eventos** para gerenciar uma lista de tarefas. O projeto permite adicionar e remover tarefas.
 
 Desenvolvi o projeto utilizando ReactJS e Styled Components para criar uma interface responsiva e estilizada.
 
@@ -17,9 +17,9 @@ Desenvolvi o projeto utilizando ReactJS e Styled Components para criar uma inter
 
 ## Apresentação:
 
-<div style="display: flex; 
-    height: 200px">
+<div>
     <img style="width: 400px" src="./src/assets/images/ListaTarefas.jpeg">
+    <h1>Mobile</h1>
     <img style="width: 600px" src="./src/assets/images/ListaTarefasMobile.jpeg">
 </div>
 
