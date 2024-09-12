@@ -1,77 +1,28 @@
-import { useState, useEffect } from 'react';
+import './App.css';
 import styled from 'styled-components';
-import ListaTarefas from './components/ListaTarefas';
-import FormularioTarefa from './components/FormularioTarefa';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import ListaTarefa from './components/ListaTarefa';
+import Header from './components/Header';
 
-// Registre os componentes do Chart.js
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+const ContainerMain = styled.div `
+  background-color: #0BBF7D;
+  padding: 60px;
 
-// Dados iniciais do gráfico
-const dadosIniciais = {
-  labels: ['Concluídas', 'Pendentes'],
-  datasets: [
-    {
-      label: 'Número de Tarefas',
-      data: [0, 0],
-      backgroundColor: ['#4caf50', '#f44336'],
-    },
-  ],
-};
+  border-radius: 12px;
 
-const ContainerApp = styled.div`
-  max-width: 801px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-`;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0px;
+  }
+`
 
-const App = () => {
-  const [tarefas, setTarefas] = useState([]);
-  const [dadosGrafico, setDadosGrafico] = useState(dadosIniciais);
-
-  useEffect(() => {
-    // Atualiza os dados do gráfico sempre que as tarefas mudarem
-    const tarefasConcluidas = tarefas.filter(tarefa => tarefa.concluida).length;
-    const tarefasPendentes = tarefas.length - tarefasConcluidas;
-
-    setDadosGrafico({
-      labels: ['Concluídas', 'Pendentes'],
-      datasets: [
-        {
-          label: 'Número de Tarefas',
-          data: [tarefasConcluidas, tarefasPendentes],
-          backgroundColor: ['#4caf50', '#f44336'],
-        },
-      ],
-    });
-  }, [tarefas]); // Atualiza o gráfico sempre que o estado de tarefas mudar
-
-  const adicionarTarefa = (tarefa) => {
-    setTarefas([...tarefas, { id: Date.now(), texto: tarefa, concluida: false }]);
-  };
-
-  const alternarConclusaoTarefa = (id) => {
-    const tarefasAtualizadas = tarefas.map(tarefa =>
-      tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
-    );
-    setTarefas(tarefasAtualizadas);
-  };
-
-  const removerTarefa = (id) => {
-    const tarefasAtualizadas = tarefas.filter(tarefa => tarefa.id !== id);
-    setTarefas(tarefasAtualizadas);
-  };
-
+function App() {
   return (
-    <ContainerApp>
-      <h1>Lista de Tarefas</h1>
-      <FormularioTarefa adicionarTarefa={adicionarTarefa} />
-      <ListaTarefas tarefas={tarefas} alternarConclusaoTarefa={alternarConclusaoTarefa} removerTarefa={removerTarefa} />
-      <Bar data={dadosGrafico} options={{ responsive: true }} />
-    </ContainerApp>
+    <div className="App">
+      <ContainerMain>
+        <ListaTarefa/>
+      </ContainerMain>
+    </div>
   );
-};
+}
 
 export default App;
